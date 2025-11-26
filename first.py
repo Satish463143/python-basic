@@ -12,15 +12,15 @@ import pyjokes
 
 # print (b/a)
 
-############### type conveersion
-# a = "satish"
-# b = type(a)
-# print(b)
+############## type conveersion
+a = "satish"
+b = type(a)
+print(b)
 
-# c = 23
-# d = float(c)
-# t = type(d)
-# print(t)
+c = 23
+d = float(c)
+t = type(d)
+print(t)
 
 ############## input function
 # e = int (input ("enter first number: "))
