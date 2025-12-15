@@ -37,6 +37,26 @@ middlevalue = name[1:9:2]
 print(middlevalue)
 
 ############## string methods
-name = "satish kuamr"
-print (name.endswith("mar"))
-print (name.capitalize())
+# name = "satish kuamr"
+# print (name.endswith("mar"))
+# print (name.capitalize())
+
+letter = '''Hello <name> 
+ how are  you?
+ you are a good boy
+ <sign>
+ '''
+
+print ((letter.replace("<name>", "satish")).replace("<sign>", "mahato"))
+
+findLetetr = letter.find("o")
+print(findLetetr)
+
+rp = letter.replace("o", "z")
+print(rp)
+
+sentence = "This a good langauge python. \n\t This is easy to learn. And very efficient"
+
+print (sentence)
+
+
