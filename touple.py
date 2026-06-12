@@ -1,4 +1,3 @@
-from typing import Concatenate
 
 
 a = (45,55,66,33,66,False,222,"Satish",678)

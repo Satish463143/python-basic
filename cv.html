@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satish Mahato - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #667eea;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header h2 {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #f5576c;
+        }
+
+        .summary {
+            font-size: 1.05em;
+            line-height: 1.5;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            font-size: 1em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .job-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title, .project-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .company, .project-link {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .experience-item ul, .project-item ul {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+
+        .experience-item li, .project-item li {
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .education-item, .cert-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover, .cert-item:hover {
+            transform: scale(1.02);
+        }
+
+        .education-title, .cert-title {
+            font-size: 1.1em;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            color: #555;
+            font-weight: 500;
+        }
+
+        .additional-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .info-item {
+            padding: 15px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .info-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .experience-item:hover, .project-item:hover,
+            .skill-category:hover, .education-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 25px;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SATISH MAHATO</h1>
+            <h2>Full Stack Developer</h2>
+            <div class="contact-info">
+                <div class="contact-item">📧 <a href="mailto:mahatosatish463@gmail.com">mahatosatish463@gmail.com</a></div>
+                <div class="contact-item">📱 +977 9766549770</div>
+                <div class="contact-item">📍 Maitidevi-30, Kathmandu</div>
+                <div class="contact-item">🌐 <a href="https://msatish.com.np" target="_blank">msatish.com.np</a></div>
+                <div class="contact-item">🔗 <a href="https://github.com/Satish463143" target="_blank">github.com/Satish463143</a></div>
+                <div class="contact-item">💼 <a href="https://linkedin.com/in/satish-mahato-233151257" target="_blank">LinkedIn Profile</a></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="summary">
+                    I'm a full-stack developer with 2+ years of experience building scalable backend APIs with Node.js and TypeScript. I enjoy designing secure, high-performance systems, working with both SQL and NoSQL databases, and deploying on cloud platforms like AWS, GCP, and Azure. On the frontend, I work with React, Tailwind, and modern UI/UX libraries to create clean, responsive interfaces. I've also explored AI/LLMs such as OpenAI, Gemini, and Azure Speech to build smarter applications. Currently, I lead Bleeding Tech as CEO, where I deliver practical solutions for e-commerce, CMS, booking systems, and AI-powered platforms.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>▶ LANGUAGES & FRAMEWORKS</h3>
+                        <p>JavaScript (ES6+), Next.js, TypeScript, Node.js, Express.js, React, HTML5, CSS3/SCSS, Tailwind, Bootstrap</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>▶ DATABASES & DATA</h3>
+                        <p>MongoDB, Mongoose, MySQL, PostgreSQL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>▶ AI / VOICE & LLMS</h3>
+                        <p>Gemini Live, OpenAI, Azure Speech, Text Analytics, Prompt Engineering</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>▶ REALTIME & APIS</h3>
+                        <p>WebSockets, RESTful APIs, Streaming Pipelines, API Design</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>▶ AUTH & SECURITY</h3>
+                        <p>JWT, RBAC, CORS, Rate Limiting, OAuth</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>▶ UI/UX & COMPONENTS</h3>
+                        <p>Responsive Design, shadcn/ui, Lucide React, Framer Motion</p>
+                    </div>
+                    <div class="skill-category" style="margin-top: 40px;">
+                        <h3>▶ CLOUD & DEVOPS</h3>
+                        <p>Google Cloud, AWS, Azure, Linux, Git/GitHub, CI/CD</p>
+                    </div>
+                    <div class="skill-category" style="margin-top: 40px;">
+                        <h3>▶ PROGRAMMING PARADIGMS</h3>
+                        <p>OOP, Functional Programming, Clean Code, Design Patterns</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Full Stack Developer</div>
+                            <div class="company">PTESathy</div>
+                        </div>
+                        <div class="date">Nov 2024 – July 2025</div>
+                    </div>
+                    <ul>
+                        <li>Built real-time voice interaction features using WebSockets with AI-powered STT/TTS for speaking practice</li>
+                        <li>Developed speaking evaluation and analytics system with scoring, progress tracking, and performance dashboards</li>
+                        <li>Designed gamified XP & levels (per-section + overall) with case-safe Mongo updates and progress UI</li>
+                        <li>Shipped automated feedback microservice (bilingual Nepali/English) and prompt packs; integrated Azure Text Analytics for vocabulary/content insights</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Full Stack Developer</div>
+                            <div class="company">Freelancer</div>
+                        </div>
+                        <div class="date">2023 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Delivered scalable web applications using Node.js, Express, TypeScript, and modern frontend frameworks</li>
+                        <li>Built secure, high-performance APIs with authentication, role-based access, and optimized databases</li>
+                        <li>Optimized database queries and application performance, achieving improved response times across all projects</li>
+                        <li>Worked directly with clients to translate requirements into reliable, production-ready solutions</li>
+                        <li>Participated in Agile development cycles, contributing to sprint planning and code review processes</li>
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <div ">                
+                <div class="experience-item">
+                    <div class="job-header"  ">
+                        <div>
+                            <div class="job-title">Full Stack Developer Intern</div>
+                            <div class="company">T.W.B. Creatives Pvt. Ltd</div>
+                        </div>
+                        <div class="date">2022</div>
+                    </div>
+                    <ul>
+                        <li>Contributed to backend service development using Node.js and Express framework</li>
+                        <li>Participated in code reviews and followed best practices for clean, modular code architecture</li>
+                        <li>Collaborated within Agile teams using SCRUM methodology for project delivery</li>
+                        <li>Gained hands-on experience with API development and database integration</li>
+                        <li>Delivered features across multiple modules/products: PTE learning suite, healthcare advice portal, and internal admin tools</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Key Projects</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">BleedingTech</div>
+                             <a href="https://bleeding-tech.vercel.app/" target="_blank"><div class="project-link">bleeding-tech.com</div></a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Designed and developed high-performance web applications using modern React / Next.js architecture</li>
+                        <li>Implemented scalable backend services with Node.js, REST APIs, and secure data handling</li>
+                        <li>Focused on UI/UX optimization, performance tuning, and SEO-friendly implementations</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Unity For Change</div>
+                            <a href="https://unity4change.org.np/" target="_blank"><div class="project-link">unity4change.org.np</div></a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Built robust e-commerce backend with Node.js, Express, and MongoDB for product management</li>
+                        <li>Developed custom admin panel APIs with sales analytics and inventory management features</li>
+                        <li>Implemented secure authentication system with JWT and file upload capabilities using Multer</li>
+                    </ul>
+                </div>
+                <br><br>
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Maya Wears</div>
+                            <a href="https://maya-wears.com/" target="_blank"><div class="project-link">maya-wears.com</div></a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Architected backend services for fashion e-commerce platform using Node.js and Express</li>
+                        <li>Developed comprehensive CMS APIs for efficient content management and product catalog</li>
+                        <li>Integrated secure payment processing and user authentication systems</li>
+                    </ul>
+                </div>                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Prashanna Bajracharya Portfolio</div>
+                            <a href="https://parsanna-portfolio.vercel.app/" target="_blank"><div class="project-link">parsanna-portfolio.vercel.app/</div></a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Developed a portfolio website backend using Node.js and Express for a photographer/videographer</li>
+                        <li>Implemented secure contact and booking inquiry APIs with client communication workflows</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Create Himalaya Adventure</div>
+                            <a href="https://createhimalaya.com/" target="_blank"><div class="project-link">createhimalaya.com</div></a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Built a scalable booking management system using Node.js, Express, MongoDB, and TypeScript</li>
+                        <li>Implemented secure REST APIs for tour listings, itineraries, bookings, and payment workflows</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Hiraya Samaj</div>
+                            <a href="https://hirayasamaj.org/" target="_blank"><div class="project-link">hirayasamaj.org</div></a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Built an organizational website with a custom CMS using Node.js, Express, and REST APIs</li>
+                        <li>Integrated a responsive React frontend with Tailwind CSS for efficient content management and performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+            <div class="section ">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="education-title">Bachelor in Computer Application (4th Year Student)</div>
+                    <div class="institution">Orchid Int. College, Gaushala</div>
+                    <div class="date">2021 - Ongoing</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title">+2 Science (Physical)</div>
+                    <div class="institution">Mithila Institute of Technology, Janakpur</div>
+                    <div class="date">2018 - 2020</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Certifications</h2>
+                
+                <div class="cert-item">
+                    <div class="cert-title">Laravel Developer Certificate</div>
+                    <div class="institution">College Certification</div>
+                    <p style="margin-top: 8px; color: #555;">Specialized in PHP, Laravel framework, and MySQL database management. Gained expertise in MVC architecture and backend development principles.</p>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-title">Frontend Developer Certificate</div>
+                    <div class="institution">Broadway Infosys</div>
+                    <p style="margin-top: 8px; color: #555;">Mastered HTML5, CSS3, JavaScript, and responsive web development. Enhanced skills in modern frontend frameworks and UI/UX design principles.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Additional Information</h2>
+                <div class="additional-info" style="margin-top: -10px;">
+                    <div class="info-item">
+                        <strong>Leadership Experience</strong>
+                        Currently serving as CEO of Bleeding Tech
+                    </div>
+                    <div class="info-item">
+                        <strong>Collaboration</strong>
+                        Experience working with cross-functional teams and stakeholders
+                    </div>
+                    <div class="info-item">
+                        <strong>Problem Solving</strong>
+                        Strong analytical skills for debugging and optimizing backend systems
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
